@@ -3,7 +3,7 @@ import cv2
 
 casc_path = cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
 faceCascade = cv2.CascadeClassifier(casc_path)
-maskCascade = cv2.CascadeClassifier("Haar-Training-master/Haar-Training-mask/training/cascades/haar_mask.xml")
+maskCascade = cv2.CascadeClassifier("haar_mask.xml")
 cap = cv2.VideoCapture(0)
 while(cap.isOpened()):
     ret, img = cap.read()
@@ -23,7 +23,7 @@ while(cap.isOpened()):
             cv2.imshow('Frame', img)
         k = cv2.waitKey(100)
         if k == ord("q") or k == ord('Q'):
-            cv2.imwrite('images/catch.jpg', img)
+            cv2.imwrite('catch.jpg', img)
             break
         print(len(faces), len(masks))
 
